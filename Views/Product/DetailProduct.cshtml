@@ -1,6 +1,8 @@
 ﻿@model Product
 @{
     int count = 0;
+    int x = 0;
+    int y = 0;
 }
 <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(/images/bg/2.jpg) no-repeat scroll center center / cover ;">
     <div class="ht__bradcaump__wrap">
@@ -39,10 +41,11 @@
                                 @foreach (var image in Model.ImageProducts)
                                 {
                                     <li role="presentation" class="pot-small-img">
-                                        <a href="#img-tab-@(image.ImageURL.Substring(0, image.ImageURL.Length - 4))" role="tab" data-bs-toggle="tab">
-                                            <img src="/images/DetailProduct/@(image.ImageURL)" alt="small-image" style="max-width: 50px">
+                                        <a href="#img-tab-@y" role="tab" data-bs-toggle="tab">
+                                            <img src="@(image.ImageURL)" alt="small-image" style="max-width: 50px">
                                         </a>
                                     </li>
+                                    y++;
                                 }
                             </ul>
                         </div>
@@ -59,10 +62,10 @@
                             @foreach (var image in Model.ImageProducts)
                             {
 
-                                <div role="tabpanel" class="tab-pane" id="img-tab-@(image.ImageURL.Substring(0, image.ImageURL.Length - 4))">
-                                    <img src="/images/DetailProduct/@(image.ImageURL)" alt="full-image" style="max-width: 450px">
+                                <div role="tabpanel" class="tab-pane" id="img-tab-@x">
+                                    <img src="@(image.ImageURL)" alt="full-image" style="max-width: 450px">
                                 </div>
-
+                                x++;
 
                             }
                         </div>
